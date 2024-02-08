@@ -5,10 +5,6 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 WORKDIR /app
 COPY . /app
-RUN pip3 install -r requirements.txt
+RUN --mount=type=cache,id=custom-pip,target=/root/.cache/pip pip install -r /app/requirements.txt && pip install gunicorn
 EXPOSE 8000
 CMD ["python3", "manage.py", "runserver", "0:8000"]
-
-
-# docker build -t harry-p17group:latest .
-# docker run --name p17_gruppa_container -p 8000:8000 harry-p17group:latest

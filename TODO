@@ -1,0 +1,35 @@
+docker compose
+AWS
+MINIO
+ssl
+nginx proxy manager
+
+
+
+# docker build -t harry-p17group:latest .
+# docker run --name p17_gruppa_container -p 8000:8000 harry-p17group:latest
+# docker tag harry-p17group:latest kholmumin/harry-p17group:latest
+# docker push
+
+
+# docker save harry-p17group > harry-p17group.tar
+# docker load --input harry-p17group.tar
+
+
+
+docker compose up
+docker compose up --build
+docker compose down
+docker compose down -v
+
+
+docker exec -it a9 python3 manage.py migrate
+docker compose run backend_service python3 manage.py migrate
+
+
+
+docker exec -itu postgres 2f psql -c 'create database drf_db';
+
+
+docker exec -itu postgres 2f psql -d drf_db -c 'create table student();'
+
