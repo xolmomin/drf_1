@@ -9,7 +9,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -51,17 +50,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "root.wsgi.application"
 
+AUTH_USER_MODEL = 'users.User'
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv('DB_NAME'),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / 'db.sqlite3',
+        # "NAME": os.getenv('DB_NAME'),
         "USER": os.getenv('DB_USER'),
         "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
         "HOST": os.getenv('DB_HOST'),
         "PORT": os.getenv('DB_PORT')
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -81,7 +82,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -93,13 +93,39 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR / 'static')
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# django-storages settings
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+AWS_ACCESS_KEY_ID = 'BWO6VN8ptuqtipOB67Sv'  # MINIO_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY = 'FWVbOkGEyKHSSTcOzgSzgvVyBZ4vAVFOsXKUbw6X'  # MINIO_SECRET_KEY
+AWS_STORAGE_BUCKET_NAME = 'media'  # MINIO_BUCKET_NAME
+AWS_S3_ENDPOINT_URL = 'http://localhost:9000'  # MINIO_ENDPOINT
+
+
+# AWS_QUERYSTRING_AUTH = True
+AWS_QUERYSTRING_EXPIRE = 30
+
+# AWS_DEFAULT_ACL = None
+# AWS_QUERYSTRING_AUTH = False
+# AWS_S3_FILE_OVERWRITE = False
+
+
+# http://localhost:9000/media/images.jpeg?AWSAccessKeyId=BWO6VN8ptuqtipOB67Sv&Signature=oyE%2FhuB4knuAACDA4pJNPBSf5LM%3D&Expires=1707571758
+# http://localhost:9000/media/images.jpeg
+
+

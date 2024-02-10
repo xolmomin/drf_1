@@ -1,10 +1,6 @@
-from django.contrib.auth.models import User
-from rest_framework import generics
-from rest_framework.generics import ListAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView, CreateAPIView, \
-    ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
+from users.models import User
 from users.serializers import UserModelSerializer, UserDetailModelSerializer
 
 

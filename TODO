@@ -27,9 +27,33 @@ docker exec -it a9 python3 manage.py migrate
 docker compose run backend_service python3 manage.py migrate
 
 
-
 docker exec -itu postgres 2f psql -c 'create database drf_db';
-
-
 docker exec -itu postgres 2f psql -d drf_db -c 'create table student();'
 
+
+
+install ssl (certbot)
+
+
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d shahbozbek.salohiddinov.me
+
+docker compose
+
+MINIO (AWS S3)
+https://naomiaro.hashnode.dev/using-minio-with-django-storages
+
+pip3 install django-storages
+pip3 install boto3
+
+docker run -p 9000:9000 -p 9001:9001 minio/minio server /data --console-address ":9001"
+
+
+
+
+docker compose
+django (template)
+
+
+# homework
+docker compose minio ni ishlatish
