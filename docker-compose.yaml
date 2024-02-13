@@ -7,11 +7,10 @@ services:
     #    container_name: compose_backend_container
     #    command: python3 manage.py runserver 8000
     env_file: .env
-    restart: always
     ports:
       - '8005:8000'
 
-  postgres_service:
+  postgres-service:
     image: postgres:alpine
     ports:
       - '5432:5432'
@@ -19,9 +18,8 @@ services:
       - pg_data_service:/var/lib/postgresql/data
     env_file: .env
 
-  minio_service:
+  minio-service:
     image: minio/minio
-    container_name: minio_container
     ports:
       - '9000:9000'
       - '9001:9001'
