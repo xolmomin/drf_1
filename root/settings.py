@@ -54,9 +54,8 @@ AUTH_USER_MODEL = 'users.User'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / 'db.sqlite3',
-        # "NAME": os.getenv('DB_NAME'),
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.getenv('DB_NAME'),
         "USER": os.getenv('DB_USER'),
         "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
         "HOST": os.getenv('DB_HOST'),
@@ -111,21 +110,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-AWS_ACCESS_KEY_ID = 'BWO6VN8ptuqtipOB67Sv'  # MINIO_ACCESS_KEY
-AWS_SECRET_ACCESS_KEY = 'FWVbOkGEyKHSSTcOzgSzgvVyBZ4vAVFOsXKUbw6X'  # MINIO_SECRET_KEY
+AWS_ACCESS_KEY_ID = os.getenv('MINIO_ACCESS_KEY')  # MINIO_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY = os.getenv('MINIO_SECRET_KEY')  # MINIO_SECRET_KEY
 AWS_STORAGE_BUCKET_NAME = 'media'  # MINIO_BUCKET_NAME
-AWS_S3_ENDPOINT_URL = 'http://localhost:9000'  # MINIO_ENDPOINT
-
+AWS_S3_ENDPOINT_URL = os.getenv('MINIO_ENDPOINT')  # MINIO_ENDPOINT
 
 # AWS_QUERYSTRING_AUTH = True
-AWS_QUERYSTRING_EXPIRE = 30
+# AWS_QUERYSTRING_EXPIRE = 30
 
 # AWS_DEFAULT_ACL = None
 # AWS_QUERYSTRING_AUTH = False
 # AWS_S3_FILE_OVERWRITE = False
-
-
-# http://localhost:9000/media/images.jpeg?AWSAccessKeyId=BWO6VN8ptuqtipOB67Sv&Signature=oyE%2FhuB4knuAACDA4pJNPBSf5LM%3D&Expires=1707571758
-# http://localhost:9000/media/images.jpeg
-
-

@@ -1,14 +1,13 @@
 from rest_framework.viewsets import ModelViewSet
 
 from users.models import User
-from users.serializers import UserModelSerializer, UserDetailModelSerializer
+from users.serializers import UserModelSerializer
 
 
 class UserViewSet(ModelViewSet):
     serializer_class = UserModelSerializer
     queryset = User.objects.all()
     http_method_names = ['get']
-
 
 #
 # class UserListAPIView(ListAPIView):

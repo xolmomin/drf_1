@@ -4,3 +4,7 @@ build:
 
 migrate:
 	python3 manage.py makemigrations && python3 manage.py migrate
+
+check:
+	isort .
+	flake8 .

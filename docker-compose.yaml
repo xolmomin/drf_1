@@ -3,9 +3,9 @@ version: "3.8"
 services:
   backend_service:
     build: .
-#    image: backend_image
-#    container_name: compose_backend_container
-#    command: python3 manage.py runserver 8000
+    #    image: backend_image
+    #    container_name: compose_backend_container
+    #    command: python3 manage.py runserver 8000
     env_file: .env
     restart: always
     ports:
@@ -13,9 +13,23 @@ services:
 
   postgres_service:
     image: postgres:alpine
-#    container_name: compose_postgres_container
     ports:
       - '5432:5432'
+    volumes:
+      - pg_data_service:/var/lib/postgresql/data
     env_file: .env
-#    environment:
-#      - POSTGRES_PASSWORD=1
+
+  minio_service:
+    image: minio/minio
+    container_name: minio_container
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - minio_storage:/data
+    env_file: .env
+    command: server --console-address ":9001" /data
+
+volumes:
+  minio_storage:
+  pg_data_service:

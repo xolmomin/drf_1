@@ -45,10 +45,8 @@ https://naomiaro.hashnode.dev/using-minio-with-django-storages
 
 pip3 install django-storages
 pip3 install boto3
-
+sudo apk add
 docker run -p 9000:9000 -p 9001:9001 minio/minio server /data --console-address ":9001"
-
-
 
 
 docker compose
@@ -57,3 +55,10 @@ django (template)
 
 # homework
 docker compose minio ni ishlatish
+
+15:20
+venv1 (flake8) [req1.txt]
+venv2 (isort) [req2.txt]
+venv3 (requests, flake8) [req3.txt]
+venv4 (httpx) [req4.txt]
+
