@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv('.env')
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-gz3@jq(j&pl9cm6gl0slmna4kat2mby58_7h6dxyg26vxe!bjx"
@@ -18,6 +20,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'users.apps.UsersConfig',
     'rest_framework',
+    'drf_yasg',
+    'django_filters',
+    'mptt',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +126,9 @@ AWS_S3_ENDPOINT_URL = os.getenv('MINIO_ENDPOINT')  # MINIO_ENDPOINT
 # AWS_DEFAULT_ACL = None
 # AWS_QUERYSTRING_AUTH = False
 # AWS_S3_FILE_OVERWRITE = False
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}

@@ -55,3 +55,44 @@ django (template)
 
 
 
+
+
+
+
+
+6-variant
+https://bootdey.com/snippets/view/bs4-Latest-News
+1. user listi va update page qilinsin
+2. user listi uchun pagination qilinsin
+3. docker compose ga project va postgres database otkazilsin
+4. userlarni yaratish django admin orqali qilinsin, agar user rasmi bolmasa default rasm qoyilsin
+5. user listda delete button qoshilsin
+
+
+7-variant
+https://bootdey.com/snippets/view/bs4-Home-Contacts
+1. user listi qilinsin
+2. user listi uchun pagination qilinsin
+3. userlarni yaratish django admin orqali qilinsin, agar user rasmi bolmasa default rasm qoyilsin
+4. user listda delete button qoshilsin va user pochtasiga 'Sizning malumotlaringiz ochirildi' degan xabar yuborilsin
+5. pochtaga yuborish celery orqali qilinsin
+
+
+8-variant
+https://bootdey.com/snippets/view/bs4-contact-cards
+1. user listi qilinsin
+2. user listi uchun pagination qilinsin
+3. userlarni yaratish django admin orqali qilinsin, agar user rasmi bolmasa default rasm qoyilsin
+4. user listda delete button qoshilsin va user pochtasiga 'Sizning malumotlaringiz ochirildi' degan xabar yuborilsin
+5. pochtaga yuborish celery orqali qilinsin
+
+
+
+
+
+
+
+
+
+
+
